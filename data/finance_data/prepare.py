@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 import os
 import re
+import torch
+torch.cuda.is_available(), torch.cuda.get_device_name(0)
 from pathlib import Path
 from typing import List, Dict, Any
 
