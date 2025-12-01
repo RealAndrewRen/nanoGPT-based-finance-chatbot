@@ -190,6 +190,8 @@ CITY_DATELINE_RE = re.compile(
 #                   MODIFIED aggressive_clean()
 # ============================================================
 
+def _split_sentences(text: str) -> List[str]: pieces = re.split(r"(?<=[\.\?\!])\s+", text) return [p.strip() for p in pieces if p and len(p.strip()) >= MIN_SENTENCE_CHARS]
+
 def aggressive_clean(raw: str) -> str:
     if not raw:
         return ""
