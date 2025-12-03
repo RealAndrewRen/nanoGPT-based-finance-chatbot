@@ -114,7 +114,6 @@ class GPTConfig:
     n_embd: int = 768
     dropout: float = 0.0
     bias: bool = True # True: bias in Linears and LayerNorms, like GPT-2. False: a bit better and faster
-    user_token_id: int | None = None
 
 class GPT(nn.Module):
 
@@ -168,7 +167,7 @@ class GPT(nn.Module):
         elif isinstance(module, nn.Embedding):
             torch.nn.init.normal_(module.weight, mean=0.0, std=0.02)
 
-    def forward(self, idx, targets=None):
+    def forward(self, idx, targets=None, loss_mask=None):
         device = idx.device
         b, t = idx.size()
         assert t <= self.config.block_size, f"Cannot forward sequence of length {t}, block size is only {self.config.block_size}"
@@ -184,15 +183,12 @@ class GPT(nn.Module):
 
         if targets is not None:
             logits = self.lm_head(x)
-            # ------------------------------------------------------------------
-            # MASK OUT <user> TOKENS DURING TRAINING
-            # ------------------------------------------------------------------
-            if self.config.user_token_id is not None:
-                # clone so we don't modify user’s original tensor
+    
+            if loss_mask is not None:
+                # ignore loss where mask == 0
                 targets = targets.clone()
-                # any position whose target == user_token_id → masked out
-                targets[targets == self.config.user_token_id] = -1
-            # ------------------------------------------------------------------
+                targets[loss_mask == 0] = -1
+    
             loss = F.cross_entropy(
                 logits.view(-1, logits.size(-1)),
                 targets.view(-1),
