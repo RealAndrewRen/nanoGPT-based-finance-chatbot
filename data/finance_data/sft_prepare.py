@@ -7,6 +7,7 @@ from transformers import AutoTokenizer
 import tiktoken
 
 enc = tiktoken.get_encoding("gpt2")
+tokenizer = AutoTokenizer.from_pretrained("gpt2")
 
 OUT_DIR = "data/finance_data"
 MAX_LENGTH = 1024
@@ -271,19 +272,17 @@ def encode_split(split_ds, tokenizer, filename, out_dir=OUT_DIR, max_length=MAX_
         ids = encoded["input_ids"]
         mask = []
         in_assistant = False
-
-        ids = encoded["input_ids"]
-
-        assistant_region = False
-        mask = []
         
+        assistant_region = False
         for tok in ids:
             if tok == assistant_start_id:
-                assistant_region = True
-            elif tok == assistant_end_id:
-                assistant_region = False
-        
+            assistant_region = True
+
             mask.append(1 if assistant_region else 0)
+
+            if tok == assistant_end_id:
+                assistant_region = False
+
 
 
         all_tokens.extend(ids)
