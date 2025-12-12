@@ -95,6 +95,63 @@
 
 ### Pre-Training Results
 
+#### Pretrained Model Comparison Summary
+
+| Name            | Description     | Results                                                         | Pros | Cons |
+|-----------------|-------------------|------------------------------------------------------------------|------|------|
+| **nanoGPT-6k**      | Custom GPT trained on finance datasets for 6,000 iterations (123.65M parameters) | Professional economic analysis with somewhat coherent discussion of Fed policy, bond markets, and inflation dynamics | • Maintains logical flow and topic relevance<br>• References real economic indicators<br>• Professional analytical tone<br>• Minimal hallucinations | • Limited training may miss nuanced patterns<br>• May lack conversational variety<br>• Shorter responses than expected<br>• Occasional grammatical issues |
+| **nanoGPT-20k** | Same model architecture trained for 20,000 iterations | Professional, article-style response with coherent, reputable, and on-topic discussions on Fed policies, bonds, and inflation dynamics | • Professional & engaging tone<br>• Uses appropriate financial vocabulary<br>• Mentions accurate metrics/statistics<br>• Draws accurate economic connections | • Occasional grammar/logic drift <br>• Risk of hallucinations |
+| **nanoGPT-50k**    | Same model architecture trained for 50,000 iterations showing overtraining effects | Degraded responses with topic drift, personal anecdotes, and hallucinations | • Captures conversational finance-forum style<br>• Uses appropriate financial vocabulary<br>• Longer, more detailed responses<br>• More grammatically correct | • Severe overtraining symptoms<br>• Frequent topic drift<br>• Hallucinated content / fake data<br>• Circular reasoning patterns<br>• Poor factual accuracy |
+
+*** 
+**nanoGPT-6k Results**
+
+**Sample Output**
+> **Prompt:** *“Why can’t we print more money? Because inflation…”*  
+> **Model Output:**  
+> *“Investors are that means lower-term uncertainty and a little bit of uncertainty in the political landscape is going to likely cause the Federal Reserve to raise rates four steps this year. The Fed has said it is also raising rates three times this year. That has helped buoy the bond market as bond yields have risen. But that has brought uncertainty to the market, and investors are concerned about an increase in the pace of the inflation rate.”*
+
+**Performance Evaluation**
+
+| Metric      | Rating | Notes |
+|-------------|--------|-------|
+| **Coherence** | 3/5 | Maintains logical flow, Professional economic analysis style, Generates grammatically incorrect phrases |
+| **Accuracy**  | 4/5 | References real economic data (Fed rates, bond yields) |
+| **Relevance** | 4/5 | Stays on topic with limited drift |
+
+*** 
+**nanoGPT-20k Results**
+**Sample Output**
+> **Prompt:** *“Why can’t we print more money? Because inflation…”*  
+> **Model Output:**  
+> *“rise below 2 percent, and that's when a big boom will begin. The question is, does that happen? Bill Gross , founder of the global asset manager where all of his money has gone, says it's hard to get ahead of inflation. "If you get to that level, you're going to see that we'll see a big spike in the interest rates and that's probably going to be a real catalyst for the Fed," he says. The Fed is set to release minutes from its June meeting this week and could make a decision on whether to increase or reduce its monthly bond purchases at any time in the future. The Fed is expected to hold its policy interest rates steady and it could take another six to 12 months before it lifts its benchmark rate, the Fed's most-predictable outlook. But as for whether and how much inflation has to rise before it could push down the Fed, according to Gross, it doesn't appear anyone knows for sure. "Any time you have the big price declines, the Fed will take action and it's going to take a long time, because inflation is going to rise," Gross says.”*
+
+**Performance Evaluation**
+
+| Metric    | Rating |  Notes |
+|-------------|--------|-------|
+| **Coherence** | 4/5 |Provides a smooth segue from prompt to first word of generated response, Style and formality of a news article, Maintains logical flow with little to no drift in grammar|
+| **Accuracy**  | 3.5/5 | Accurate inflation threshold, References relevant economic concepts (Federal interest rates, bond purchases), Draws connections between concepts (ex. price changes influence Fed interest rates, which impact inflation), Potentially hallucinating quotes |
+| **Relevance** | 4/5 | Stays on topic with minimal drift |
+
+*** 
+**nanoGPT-50k Results**
+
+**Sample Output**
+> **Prompt:** *“Why can’t we print more money? Because inflation…”*  
+> **Model Output:**  
+> *“Assistant: Does the value of your mortgage actually hit the value of your property?
+Human: I'm not sure, it's only $500 a month. Say the value of your home is $100k. That's what I assume. You actually make $85k. That's probably better than what you paid for a single property and you can afford a condo with some reasonable interest rates. So you can afford something with a 10% down payment on a home that comes with a $500k down payment.”*
+
+**Performance Evaluation**
+
+| Metric      | Rating | Notes |
+|-------------|--------|-------|
+| **Coherence** | 2/5 | Circular reasoning patterns, Personal finance forum style with degraded quality |
+| **Accuracy**  | 1/5 | Mixes correct/incorrect information, generates hallucinations (overtrained)|
+| **Relevance** | 1/5 | Frequent topic drift |
+
+***
 
 ### SFT Results
 
