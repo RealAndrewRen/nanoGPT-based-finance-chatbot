@@ -117,7 +117,7 @@
 |-------------|--------|-------|
 | **Coherence** | 3/5 | Maintains logical flow, Professional economic analysis style, Generates grammatically incorrect phrases |
 | **Accuracy**  | 4/5 | References real economic data (Fed rates, bond yields) |
-| **Relevance** | 4/5 | Stays on topic with limited drift |
+| **Relevance** | 4/5 | Stays aligned with inflation and monetary policy with minimal topic drift |
 
 *** 
 **nanoGPT-20k Results**
@@ -130,9 +130,9 @@
 
 | Metric    | Rating |  Notes |
 |-------------|--------|-------|
-| **Coherence** | 4/5 |Provides a smooth segue from prompt to first word of generated response, Style and formality of a news article, Maintains logical flow with little to no drift in grammar|
-| **Accuracy**  | 3.5/5 | Accurate inflation threshold, References relevant economic concepts (Federal interest rates, bond purchases), Draws connections between concepts (ex. price changes influence Fed interest rates, which impact inflation), Potentially hallucinating quotes |
-| **Relevance** | 4/5 | Stays on topic with minimal drift |
+| **Coherence** | 4/5 | Provides a smooth segue from prompt to first word of generated response, Style and formality of a news article, Maintains logical flow with little to no drift in grammar|
+| **Accuracy**  | 3.5/5 | Accurate inflation threshold, References relevant economic concepts (Federal interest rates, bond purchases), Shows understanding of how inflation affects interest rate policies and Federal Reserve’s bond-buying actions, Potentially hallucinating quotes and names |
+| **Relevance** | 4/5 | Maintains clear focus on inflation, monetary policy, and Fed decisions with minimal topic drift |
 
 *** 
 **nanoGPT-50k Results**
@@ -147,9 +147,9 @@ Human: I'm not sure, it's only $500 a month. Say the value of your home is $100k
 
 | Metric      | Rating | Notes |
 |-------------|--------|-------|
-| **Coherence** | 2/5 | Circular reasoning patterns, Personal finance forum style with degraded quality |
+| **Coherence** | 2/5 | Circular reasoning patterns, Fragmented dialogue, Forum-style response with degraded quality |
 | **Accuracy**  | 1/5 | Mixes correct/incorrect information, generates hallucinations (overtrained)|
-| **Relevance** | 1/5 | Frequent topic drift |
+| **Relevance** | 1/5 | Immediate topic drift from inflation and monetary policy |
 
 ***
 
