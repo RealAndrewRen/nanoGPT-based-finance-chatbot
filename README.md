@@ -97,7 +97,7 @@
 - nanoGPT-20k is the best-performing pretrained model, as it delivers the most coherent and relevant responses compared to nanoGPT-6k and nanoGPT-50k.
 - nanoGPT-6k outperforms nanoGPT-50k, as it suffers from overfitting and produces degraded/hallucinated outputs.
 - SFT fine-tuning enhances nanoGPT-20k by generating clear, conversational, chatbot-style responses that remain focused on the user’s question
-- While SFT results show improvement in accuracy and relevance, the generated outputs can be improved by addressing all aspects of the user's question in detail and avoiding circular reasoning patterns.
+- While SFT results show improvement in accuracy and relevance, the generated outputs can be improved by addressing all aspects of the user's question in detail and avoiding circular reasoning patterns
 
 
 ### Pre-Training Results
@@ -170,8 +170,8 @@ Stock trading can be challenging and involves many different types of investment
 
 | Metric      | Rating | Notes |
 |-------------|--------|-------|
-| **Coherence** | 3/5 | Has a conversational and logical flow of ideas that answers the prompt, Occasional drift in grammar, Contains circular reasoning patterns|
-| **Accuracy**  | 3.5/5 | Gives tips related to the prompt based on the second part of the user’s question, but does not answer it fully |
+| **Coherence** | 3/5 | Has a conversational and logical flow of ideas that answers the prompt, Occasional drift in grammar, Contains circular reasoning patterns, Does not fully address second part of user's prompt|
+| **Accuracy**  | 4/5 | Gives realistic and accurate tips related to the prompt based on the second part of the user’s question |
 | **Relevance** | 5/5 | Information does not stray from the prompt’s topic |
 
 ---
