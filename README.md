@@ -158,6 +158,7 @@ Human: I'm not sure, it's only $500 a month. Say the value of your home is $100k
 | **Accuracy**  | 1/5 | Mixes correct/incorrect information, generates hallucinations (overtrained)|
 | **Relevance** | 1/5 | Immediate topic drift from inflation and monetary policy |
 
+*** 
 
 ### SFT Results
 
