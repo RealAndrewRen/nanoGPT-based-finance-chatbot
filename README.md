@@ -26,7 +26,7 @@
 
 ---
 
-## 👩🏽‍💻 **Setup and Installation**
+## 👩🏽‍💻 Setup and Installation
 
 ### 1️⃣ Clone the Repository
 
@@ -38,9 +38,71 @@ cd finance-nanogpt
 ### 2️⃣ Install Dependencies
 
 ```bash
-git clone https://github.com/your-username/finance-nanogpt.git
-cd finance-nanogpt
+pip install tiktoken transformers datasets tqdm torch
 ```
+
+For GPU acceleration, ensure you have a CUDA-compatible PyTorch installation.
+
+### 3️⃣ Environment Setup (Optional but Recommended)
+
+Create and activate a virtual environment:
+```bash
+python -m venv venv
+source venv/bin/activate     # macOS/Linux
+venv\Scripts\activate        # Windows
+```
+### 4️⃣ Load Datasets (Optional)
+
+The training pipeline currently supports Hugging Face datasets only.
+
+To add a custom dataset, insert an entry with the following format:
+```json
+{"name": "<dataset_name>", "cols_to_parse": ["<columns>"], "split": "train"}
+```
+- For domain-adaptation pretraining, edit:
+```bash
+  data/finance_data/prepare.py
+```
+- For supervised fine-tuning (SFT), edit:
+```bash
+  data/finance_data/sft_prepare.py
+```
+
+When adding SFT datasets, ensure the `format_sft` function tokenizes the correct columns.
+
+### 5️⃣ Encode Training Binaries (Domain Adaptation Pretraining)
+
+python data/finance_data/prepare.py
+
+### 6️⃣ Domain Adaptation Pretraining
+```text
+python train.py config/train_financedata.py
+```
+Training typically runs for 5k–20k iterations, depending on available compute.
+The resulting model checkpoint will be saved as ck.pt.
+
+### 7️⃣ Encode Binaries for Supervised Fine-Tuning
+```text
+python data/finance_data/sft_prepare.py
+```
+### 8️⃣ Supervised Fine-Tuning (SFT)
+
+1. In train.py, update the initialization method:
+   ```python
+   init_from = "resume"
+   ```
+   (replace the default gpt2 initialization)
+
+3. Resume training from the domain-adapted checkpoint and train for at least 4k iterations.
+
+4. Save the resulting checkpoint (ck.pt) upon completion.
+
+### 9️⃣ Prompt the Model
+
+Use the generation or inference scripts to interact with the trained model.
+
+Work is underway to fully replace remaining notebook-based steps with standalone scripts for improved reproducibility.
+
 
 
 ---
