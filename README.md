@@ -10,7 +10,7 @@
 | Nailya Alimova   | @naiilya     | Exploratory Data Analysis, Supervised Fine-Tuning, Project Management     |
 | Anjali Amin     | @anjali5582  | Data Preprocessing, Data Validation, Results Interpretation                |
 | Marvin Hoang      | @marhvin       | Model Selection, Hyperparameter Tuning, Model Training & Optimization  |
-| Naisha Mistry       | @naishahmistry    | Model Evaluation, Performance Analysis, Results Interpretation |   
+| Naisha Mistry       | @naishahmistry    | Model Training & Evaluation, Performance Analysis, Results Interpretation |   
 
 ---
 
