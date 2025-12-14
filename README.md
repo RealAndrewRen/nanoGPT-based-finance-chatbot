@@ -116,27 +116,50 @@ to load the trained checkpoint and interactively prompt the fine-tuned model.
 
 ## 🏗️ **Project Overview**
 
-**Describe:**
+- This project was developed by a team of five AI Studio Fellows at MIT as part of the Break Through Tech AI Program, under the supervision of David Fang (Member of Technical Staff, OpenAI).
 
-- How this project is connected to the Break Through Tech AI Program
-- Your AI Studio host company and the project objective and scope
-- The real-world significance of the problem and the potential impact of your work
+- Our work focuses on building a personalized GPT-2 Small (124M) language model using the nanoGPT framework. The primary objective is to develop a financial-literacy chatbot designed for young users, particularly students, who are seeking accessible explanations of finance concepts such as budgeting, investing, and core economic terminology.
+- To achieve this, we implemented a two-stage training pipeline:
+1. Domain-adaptive pretraining on large-scale financial text corpora
+2. Supervised fine-tuning (SFT) to enable conversational, instruction-following behavior
+
+This approach allows the model to first acquire strong domain knowledge in finance and then adapt that knowledge into coherent, user-friendly responses suitable for real-world Q&A interactions.
 
 ---
 
 ## 📊 **Data Exploration**
 
-**You might consider describing the following (as applicable):**
+1. *Base (Pretraining) Datasets*
+For initial domain adaptation, we curated a diverse set of finance-focused text datasets, referred to as base datasets, including:
+- Financial textbooks
+- Bloomberg financial news
+- General financial news articles
+- Aggregated financial news corpora
 
-* The dataset(s) used: origin, format, size, type of data
-* Data exploration and preprocessing approaches
-* Insights from your Exploratory Data Analysis (EDA)
-* Challenges and assumptions when working with the dataset(s)
+These datasets were selected to ensure coverage across formal academic writing, professional news reporting, and general explanatory finance content. This balance enables the model to respond effectively to both technical finance questions and everyday financial inquiries.
+- *Preprocessing Pipeline*
+For all base datasets, we applied a consistent preprocessing workflow:
+- Used regex-based cleaning to remove URLs, timestamps, and redundant source metadata
+- Dropped non-essential columns, retaining only core financial text
+- Converted cleaned text into .txt files compatible with nanoGPT
+- Tokenized text using GPT-2 BPE to transform words into model-readable tokens
 
-**Potential visualizations to include:**
+2. *Supervised Fine-Tuning (SFT) Datasets*
+- After obtaining a pretrained financial checkpoint, we performed supervised fine-tuning using:
+- Finance Instruct
+- Finance Alpaca
+These datasets were chosen for their high-quality question-answer and instruction-response pairs, spanning academic finance, macroeconomics, and personal finance topics. Together, they support robust conversational performance across both formal and informal user queries.
+- *Preprocessing Pipeline*
+The SFT datasets underwent an extended preprocessing pipeline:
+- Applied regex cleaning to remove rows containing LaTeX artifacts or profanity
+- Standardized formatting
+- Inserted explicit “User” and “Assistant” tokens to structure dialogue
+- Converted cleaned conversations into .txt format
+- Tokenized data for nanoGPT compatibility
+- Masked “User” tokens so loss is computed only on “Assistant” outputs
+- Encoded both masked and unmasked variants into .bin files to evaluate their impact on model performance
 
-* Plots, charts, heatmaps, feature visualizations, sample dataset images
-
+This design allowed us to systematically test how masking strategies influence response quality, coherence, and alignment with user intent.
 ---
 
 ## 🧠 **Model Development**
