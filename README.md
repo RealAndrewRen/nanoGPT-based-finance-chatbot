@@ -153,11 +153,10 @@ After obtaining a pretrained financial checkpoint, we performed supervised fine-
 - Finance Instruct: https://huggingface.co/datasets/Josephgflowers/Finance-Instruct-500k 
 - Finance Alpaca: https://huggingface.co/datasets/gbharti/finance-alpaca/viewer/default/train?row=0&views%5B%5D=train 
 
-These datasets were chosen for their high-quality question-answer and instruction-response pairs, spanning academic finance, macroeconomics, and personal finance topics. Together, they support robust conversational performance across both formal and informal user queries.
+These datasets were chosen for their high-quality question-answer and instruction-response pairs, spanning academic finance and personal finance topics. Together, they support robust conversational performance across both formal and informal user queries.
 
 Preprocessing Pipeline:
-- Applied regex cleaning to remove rows containing LaTeX artifacts or profanity
-- Standardized formatting
+- Applied regex cleaning to remove rows containing LaTeX artifacts and profanity
 - Inserted explicit “User” and “Assistant” tokens to structure dialogue
 - Masked “User” tokens so loss is computed only on “Assistant” outputs
 - Converted cleaned conversations into .txt format compatible with nanoGPT
