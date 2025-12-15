@@ -2,8 +2,6 @@
 
 ### 👥 **Team Members**
 
-**Example:**
-
 | Name             | GitHub Handle | Contribution                                                             |
 |------------------|---------------|--------------------------------------------------------------------------|
 | Andrew Ren    | @realandrewren | Data Preprocessing, Model Training, Project Coordination                   |
@@ -279,11 +277,28 @@ Stock trading can be challenging and involves many different types of investment
 
 ## 🚀 **Next Steps**
 
-**You might consider addressing the following (as applicable):**
+With additional time and resources, we would pursue the following directions to further improve our model’s performance, usability, and real-world impact:
 
-* What are some of the limitations of your model?
-* What would you do differently with more time/resources?
-* What additional datasets or techniques would you explore?
+### Expanded Data Collection via Web Scraping
+- Scrape high-quality, reputable personal-finance educational resources (e.g., Khan Academy, Fidelity, FDIC, Investopedia) to broaden the model’s exposure to practical, user-facing financial explanations.
+- Focus on beginner-friendly content covering budgeting, credit, investing fundamentals, and financial safety to better align with the target audience.
+- Apply automated filtering, deduplication, and quality checks to ensure clean, domain-relevant training data.
+
+### Large-Scale Training and Fine-Tuning
+- Refine prompting and loss-masking strategies to better isolate assistant responses and reduce circular reasoning.
+- Scale training to longer context lengths and experiment with larger foundation models beyond GPT-2 Small.
+- Leverage cloud-based infrastructure and higher-performance GPUs to support longer training runs and improved convergence.
+- Explore training a model from scratch rather than initializing from GPT-2 to reduce inherited biases and better tailor the architecture to finance-domain objectives.
+
+### Reinforcement Learning from Human Feedback (RLHF)
+- Apply reinforcement learning from human feedback to improve alignment, factual accuracy, and instructional clarity.
+- Collect structured human feedback on model responses using the new [**nanoChat**](https://github.com/karpathy/nanochat) repository.
+- Fine-tune the model to prefer clear, concise, and actionable financial guidance while minimizing hallucinations.
+
+### User-Facing Application Development
+- Build an interactive, user-facing interface that allows users to chat with Pennywise in real time.
+- Incorporate features such as conversation history, topic-based prompts, and age-appropriate explanations.
+- Use anonymized user interaction data to inform future evaluation and iterative training cycles.
 
 ---
 
