@@ -29,7 +29,7 @@
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/finance-nanogpt.git
+git clone https://github.com/realandrewren/pennywise.git
 cd finance-nanogpt
 ```
 
